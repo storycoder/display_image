@@ -1,0 +1,11 @@
+<h1>Index</h1>
+
+<% @galleries.each do |gallery| %>
+	<h2 class="title"><%= link_to gallery.pic, gallery %></h2>
+	<p class="display"><%= image_tag gallery.photo %></p>
+	<p class="desribe"><%= gallery.description %></p>
+	<p><%= link_to 'Edit', edit_gallery_path(gallery) %> | 
+	<%= link_to 'Delete', gallery, method: :delete, data: { confirm: 'Are you sure want to delete #{@gallery.pic}'} %></p>
+<% end %>
+
+<%= link_to 'Create New Display', new_gallery_path %>

@@ -1,0 +1,23 @@
+<%= form_for @gallery do |f| %>
+ <% if @gallery.errors.any? %>
+ 	<h2><%= pluralize(@gallery.errors.count, "error") %> prevented this post from saving </h2>
+ 	<ul>
+ 		<% @gallery.errors.full_messages.each do |msg| %>
+ 			<%= msg %>
+ 		<% end %>
+ 	</ul>
+ <% end %>
+ <p>
+	 <%= f.label :pic %>
+	 <%= f.text_field :pic %>
+ </p>
+ <p>
+ 	<%= f.label :photo %>
+ 	<%= f.file_field :photo %>
+ </p>
+ <p>
+ 	<%= f.label :description %>
+ 	<%= f.text_area :description %>
+ </p>
+  <%= f.submit %>
+<% end %>
